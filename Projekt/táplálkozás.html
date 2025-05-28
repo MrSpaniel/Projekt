@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitLife - Egészséges Táplálkozás</title>
+    <style>
+        :root {
+            --primary-color: #4a9d8b;
+            --secondary-color: #2e5d54;
+            --accent-color: #f8b400;
+            --light-color: #f5f5f5;
+            --dark-color: #333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        .page-header {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('képek/élelmiszer1.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 40vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            margin-bottom: 2rem;
+        }
+        
+        .page-header-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .content-section {
+            padding: 2rem 0;
+        }
+        
+        .section-title {
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent-color);
+        }
+        
+        /* Float images */
+        .float-left {
+            float: left;
+            margin: 0 1.5rem 1rem 0;
+            max-width: 45%;
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+        
+        .float-right {
+            float: right;
+            margin: 0 0 1rem 1.5rem;
+            max-width: 45%;
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+        
+        .clearfix::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        
+        .food-groups {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .food-group {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .food-group h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .food-group ul {
+            list-style-position: inside;
+            margin-left: 1rem;
+        }
+        
+        .food-group li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .external-link {
+            color: var(--primary-color);
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 1px dashed var(--primary-color);
+        }
+        
+        .external-link:hover {
+            color: var(--secondary-color);
+            border-bottom-style: solid;
+        }
+        
+        .nutrition-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .nutrition-table th, 
+        .nutrition-table td {
+            padding: 1rem;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        
+        .nutrition-table th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .nutrition-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        .nutrition-table tr:hover {
+            background-color: #e9e9e9;
+        }
+        
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+        
+        .creator {
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">FitLife</div>
+                <ul class="nav-links">
+                    <li><a href="projekt/index.html">Kezdőlap</a></li>
+                    <li><a href="projekt/táplálkozás.html">Táplálkozás</a></li>
+                    <li><a href="projekt/edzés.html">Edzés</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="page-header">
+        <div class="page-header-content">
+            <h1>Egészséges Táplálkozás</h1>
+            <p>Fedezd fel a kiegyensúlyozott étrend titkait és az egészséges ételek világát</p>
+        </div>
+    </section>
+    
+    <main class="container">
+        <section class="content-section clearfix">
+            <img src="képek/élelmiszer2.jpg" alt="Egészséges ételek" class="float-right">
+            <h2 class="section-title">Az egészséges táplálkozás alapjai</h2>
+            <p>Az egészséges táplálkozás nem diétáról, hanem hosszú távú életmódról szól. A kulcs a változatosságban és a mértékletességben rejlik. Minden étkezés lehetőség arra, hogy tápanyagokkal lássuk el a szervezetünket.</p>
+            <p>Az alapvető táplálkozási irányelvekről többet olvashatsz a <a href="https://www.eatwellguide.org" class="external-link" target="_blank">EatWell Guide</a> oldalán, amely szakértők által összeállított útmutatót kínál.</p>
+            <p>Egy kiegyensúlyozott étrend tartalmaz:</p>
+            <ul>
+                <li>Bőséges mennyiségű zöldséget és gyümölcsöt</li>
+                <li>Teljes kiőrlésű gabonákat</li>
+                <li>Kevés zsíros hús helyett halat és növényi fehérjéket</li>
+                <li>Korlátozott mennyiségű hozzáadott cukrot és sót</li>
+                <li>Elegendő folyadékot, főként vizet</li>
+            </ul>
+        </section>
+        
+        <section class="content-section">
+            <h2 class="section-title">Tápanyagcsoportok és forrásaik</h2>
+            
+            <div class="food-groups">
+                <div class="food-group">
+                    <h3>Fehérjék</h3>
+                    <ul>
+                        <li>Hüvelyesek (bab, lencse, csicseriborsó)</li>
+                        <li>Tojás</li>
+                        <li>Halak (lazac, tonhal, tőkehal)</li>
+                        <li>Szárnyasok (csirke, pulyka)</li>
+                        <li>Tejtermékek (túró, görög joghurt)</li>
+                    </ul>
+                </div>
+                
+                <div class="food-group">
+                    <h3>Egészséges szénhidrátok</h3>
+                    <ul>
+                        <li>Teljes kiőrlésű gabonák (quinoa, barna rizs)</li>
+                        <li>Édesburgonya</li>
+                        <li>Zöldségek (brokkoli, spenót, karalábé)</li>
+                        <li>Gyümölcsök (alma, banán, bogyós gyümölcsök)</li>
+                    </ul>
+                </div>
+                
+                <div class="food-group">
+                    <h3>Jó zsírok</h3>
+                    <ul>
+                        <li>Avokádó</li>
+                        <li>Díófélék és magvak</li>
+                        <li>Olívaolaj és kókuszolaj</li>
+                        <li>Vadon fogott zsíros halak</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <p>További részletes információkért ajánljuk a <a href="https://www.hsph.harvard.edu/nutritionsource/" class="external-link" target="_blank">Harvard T.H. Chan School of Public Health</a> táplálkozási forrását.</p>
+        </section>
+        
+        <section class="content-section clearfix">
+            <img src="képek/élelmiszer1.jpg" alt="Tápláló ételek" class="float-left">
+            <h2 class="section-title">Napi étkezési terv mintája</h2>
+            <p>Íme egy egészséges napi étkezési terv, amely minden szükséges tápanyagot biztosít:</p>
+            
+            <ol>
+                <li><strong>Reggeli:</strong> Zabpehely görög joghurttal, friss bogyós gyümölcsökkel és dióval</li>
+                <li><strong>Tízórai:</strong> Almás szeletek mogyoróvajjal</li>
+                <li><strong>Ebéd:</strong> Grillezett csirkemell quinoa salátával és párolt zöldségekkel</li>
+                <li><strong>Uzsonna:</strong> Zöldségpálcikák humusszal</li>
+                <li><strong>Vacsora:</strong> Sütött lazac édesburgonyapürével és párolt brokkolival</li>
+            </ol>
+            
+            <p>Ne felejtsd el, hogy minden ember más és más igényekkel rendelkezik. Fontos, hogy megtaláld a számodra megfelelő egyensúlyt. Az <a href="https://www.myplate.gov" class="external-link" target="_blank">USDA MyPlate</a> segítségével személyre szabott táplálkozási tervet készíthetsz.</p>
+        </section>
+        
+        <section class="content-section">
+            <h2 class="section-title">Fontos tápanyagok és napi beviteli ajánlás</h2>
+            
+            <table class="nutrition-table">
+                <tr>
+                    <th>Tápanyag</th>
+                    <th>Funkció</th>
+                    <th>Ajánlott napi mennyiség</th>
+                    <th>Legjobb források</th>
+                </tr>
+                <tr>
+                    <td>Rost</td>
+                    <td>Emésztés támogatása, vércukorszint szabályozása</td>
+                    <td>25-30g</td>
+                    <td>Teljes kiőrlésű gabonák, zöldségek, gyümölcsök</td>
+                </tr>
+                <tr>
+                    <td>Kalcium</td>
+                    <td>Csontok és fogak erősítése</td>
+                    <td>1000-1200mg</td>
+                    <td>Tejtermékek, zöldleveles zöldségek, erősített ételek</td>
+                </tr>
+                <tr>
+                    <td>D-vitamin</td>
+                    <td>Kalcium felszívódás, immunrendszer</td>
+                    <td>600-800 IU</td>
+                    <td>Napfény, vadhál, erősített ételek</td>
+                </tr>
+                <tr>
+                    <td>Vas</td>
+                    <td>Vérképzés, oxigénszállítás</td>
+                    <td>8-18mg</td>
+                    <td>Vörös hús, hüvelyesek, zöldleveles zöldségek</td>
+                </tr>
+                <tr>
+                    <td>Omega-3 zsírsavak</td>
+                    <td>Szív-érrendszer, agyműködés</td>
+                    <td>250-500mg</td>
+                    <td>Vadhál, chia mag, lenmag</td>
+                </tr>
+            </table>
+            
+            <p>A pontos napi szükségletek életkortól, nemtől és aktivitási szinttől függően változhatnak. További részletekért látogass el a <a href="https://www.nutrition.org.uk" class="external-link" target="_blank">British Nutrition Foundation</a> honlapjára.</p>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 FitLife - Egészséges Táplálkozás</p>
+            <p>Készítő: <span class="creator">Kovács János</span></p>
+        </div>
+    </footer>
+</body>
+</html>
