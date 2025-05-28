@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitLife - Edzés és Mozgás</title>
+    <style>
+        :root {
+            --primary-color: #4a9d8b;
+            --secondary-color: #2e5d54;
+            --accent-color: #f8b400;
+            --light-color: #f5f5f5;
+            --dark-color: #333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        .page-header {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('képek/edzés1.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 40vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            margin-bottom: 2rem;
+        }
+        
+        .page-header-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .content-section {
+            padding: 2rem 0;
+        }
+        
+        .section-title {
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent-color);
+        }
+        
+        /* Float images */
+        .float-left {
+            float: left;
+            margin: 0 1.5rem 1rem 0;
+            max-width: 45%;
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+        
+        .float-right {
+            float: right;
+            margin: 0 0 1rem 1.5rem;
+            max-width: 45%;
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+        
+        .clearfix::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        
+        .workout-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .workout-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .workout-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .workout-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .workout-content {
+            padding: 1.5rem;
+        }
+        
+        .workout-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .benefits-list {
+            list-style-type: none;
+            margin: 1rem 0;
+        }
+        
+        .benefits-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .benefits-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .exercise-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .exercise-table th, 
+        .exercise-table td {
+            padding: 1rem;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        
+        .exercise-table th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .exercise-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        .exercise-table tr:hover {
+            background-color: #e9e9e9;
+        }
+        
+        .external-link {
+            color: var(--primary-color);
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 1px dashed var(--primary-color);
+        }
+        
+        .external-link:hover {
+            color: var(--secondary-color);
+            border-bottom-style: solid;
+        }
+        
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+        
+        .creator {
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">FitLife</div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Kezdőlap</a></li>
+                    <li><a href="táplálkozás.html">Táplálkozás</a></li>
+                    <li><a href="edzés.html">Edzés</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="page-header">
+        <div class="page-header-content">
+            <h1>Edzés és Mozgás</h1>
+            <p>Fedezd fel a rendszeres testmozgás előnyeit és találd meg a számodra megfelelő edzésformát!</p>
+        </div>
+    </section>
+    
+    <main class="container">
+        <section class="content-section clearfix">
+            <img src="képek/edzés2.jpg" alt="Edzés" class="float-left">
+            <h2 class="section-title">A rendszeres mozgás fontossága</h2>
+            <p>A rendszeres testmozgás az egészséges életmód egyik alapköve. Nemcsak a testsúly szabályozásában segít, hanem számos egyéb előnnyel is jár az egészség szempontjából.</p>
+            <p>Az <a href="https://www.who.int/news-room/fact-sheets/detail/physical-activity" class="external-link" target="_blank">Egészségügyi Világszervezet (WHO)</a> ajánlása szerint a felnőtteknek heti legalább 150 perc közepes intenzitású vagy 75 perc erős intenzitású aerob mozgást végezzenek.</p>
+            
+            <h3>A rendszeres mozgás főbb előnyei:</h3>
+            <ul class="benefits-list">
+                <li><strong>Szív-érrendszeri egészség:</strong> Csökkenti a magas vérnyomás és szívbetegség kockázatát</li>
+                <li><strong>Súlyszabályozás:</strong> Segít az egészséges testsúly megtartásában</li>
+                <li><strong>Csont- és izomrendszer:</strong> Erősíti a csontokat és izmokat</li>
+                <li><strong>Mentális egészség:</strong> Csökkenti a stresszt és depressziót, javítja az alvást</li>
+                <li><strong>Energiaszint:</strong> Növeli a vitalitást és az általános életminőséget</li>
+            </ul>
+        </section>
+        
+        <section class="content-section">
+            <h2 class="section-title">Edzéstípusok</h2>
+            
+            <div class="workout-types">
+                <div class="workout-card">
+                    <img src="képek/edzés1.jpg" alt="Kardió edzés" class="workout-img">
+                    <div class="workout-content">
+                        <h3>Kardio edzés</h3>
+                        <p>A kardió edzések növelik a szív- és érrendszeri állóképességet, javítják az oxigénfelhasználást és segítenek a kalóriaégetésben.</p>
+                        <ul>
+                            <li>Futás, gyaloglás</li>
+                            <li>Kerékpározás</li>
+                            <li>Úszás</li>
+                            <li>Evezés</li>
+                        </ul>
+                        <p>További információ: <a href="https://www.heart.org/en/healthy-living/fitness/fitness-basics/endurance-exercise-aerobic" class="external-link" target="_blank">American Heart Association</a></p>
+                    </div>
+                </div>
+                
+                <div class="workout-card">
+                    <img src="képek/edzés2.jpg" alt="Erőnléti edzés" class="workout-img">
+                    <div class="workout-content">
+                        <h3>Erőnléti edzés</h3>
+                        <p>Az erőnléti gyakorlatok növelik az izomtömeget, erősítik a csontokat és javítják az anyagcserét.</p>
+                        <ul>
+                            <li>Súlyzós gyakorlatok</li>
+                            <li>Testzsúlyos gyakorlatok</li>
+                            <li>Ellenállásos edzés</li>
+                            <li>Crossfit</li>
+                        </ul>
+                        <p>További információ: <a href="https://www.mayoclinic.org/healthy-lifestyle/fitness/in-depth/strength-training/art-20046670" class="external-link" target="_blank">Mayo Clinic</a></p>
+                    </div>
+                </div>
+                
+                <div class="workout-card">
+                    <img src="képek/edzés1.jpg" alt="Rugalmassági edzés" class="workout-img">
+                    <div class="workout-content">
+                        <h3>Rugalmassági edzés</h3>
+                        <p>A rugalmassági gyakorlatok javítják az ízületek mozgástartományát, csökkentik a sérülésveszélyt és segítenek a helyes testtartásban.</p>
+                        <ul>
+                            <li>Jóga</li>
+                            <li>Pilates</li>
+                            <li>Nyújtás</li>
+                            <li>Thai chi</li>
+                        </ul>
+                        <p>További információ: <a href="https://www.nhs.uk/live-well/exercise/flexibility-exercises/" class="external-link" target="_blank">NHS UK</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="content-section">
+            <h2 class="section-title">Heti edzésprogram kezdőknek</h2>
+            
+            <table class="exercise-table">
+                <tr>
+                    <th>Nap</th>
+                    <th>Edzéstípus</th>
+                    <th>Időtartam</th>
+                    <th>Példa gyakorlatok</th>
+                </tr>
+                <tr>
+                    <td>Hétfő</td>
+                    <td>Kardio (közepes intenzitás)</td>
+                    <td>30 perc</td>
+                    <td>Gyors gyaloglás, kerékpározás</td>
+                </tr>
+                <tr>
+                    <td>Kedd</td>
+                    <td>Erőnléti edzés (felsőtest)</td>
+                    <td>25 perc</td>
+                    <td>Felemelések, tolódzkodás, felülés</td>
+                </tr>
+                <tr>
+                    <td>Szerda</td>
+                    <td>Pihenőnap vagy nyújtás</td>
+                    <td>15-20 perc</td>
+                    <td>Alap nyújtógyakorlatok</td>
+                </tr>
+                <tr>
+                    <td>Csütörtök</td>
+                    <td>Kardio (váltakozó intenzitás)</td>
+                    <td>25 perc</td>
+                    <td>Intervall futás/gyaloglás</td>
+                </tr>
+                <tr>
+                    <td>Péntek</td>
+                    <td>Erőnléti edzés (alsótest)</td>
+                    <td>25 perc</td>
+                    <td>Guggolás, kitörés, lábtolás</td>
+                </tr>
+                <tr>
+                    <td>Szombat</td>
+                    <td>Rugalmassági edzés</td>
+                    <td>30-40 perc</td>
+                    <td>Jóga vagy pilates</td>
+                </tr>
+                <tr>
+                    <td>Vasárnap</td>
+                    <td>Aktív pihenés</td>
+                    <td>Választható</td>
+                    <td>Séta, kerékpározás, úszás</td>
+                </tr>
+            </table>
+            
+            <p>Ez a program csak tájékoztató jellegű. Mindig hallgass a testedre és konzultálj orvossal, ha bármilyen egészségügyi problémád van. További edzésprogramokért látogass el a <a href="https://www.acefitness.org/resources/everyone/exercise-library/" class="external-link" target="_blank">American Council on Exercise</a> oldalára.</p>
+        </section>
+        
+        <section class="content-section clearfix">
+            <img src="képek/edzés2.jpg" alt="Otthoni edzés" class="float-right">
+            <h2 class="section-title">Otthoni edzés tippek</h2>
+            <p>Nem mindenkinek van lehetősége edzőterembe járni, de ez nem jelent akadályt a rendszeres mozgásra. Íme néhány tipp otthoni edzéshez:</p>
+            
+            <ol>
+                <li><strong>Teremts mozgásteret:</strong> Szánj egy kis helyet a lakásban, ahol kényelmesen mozoghatsz.</li>
+                <li><strong>Használj háztartási tárgyakat:</strong> Vízflaskák súlyként, szék a tolódzkodáshoz.</li>
+                <li><strong>Kövesd az online edzésvideókat:</strong> Rengeteg ingyenes erőforrás áll rendelkezésre.</li>
+                <li><strong>Állítsd össze a saját edzésprogramodat:</strong> Válaszd ki a kedvenc gyakorlataidat.</li>
+                <li><strong>Légy következetes:</strong> Állíts be fix edzésidőpontokat a napirendedbe.</li>
+            </ol>
+            
+            <p>Ingyenes otthoni edzésprogramokért ajánljuk a <a href="https://www.fitnessblender.com" class="external-link" target="_blank">Fitness Blender</a> oldalát, ahol százak számára ingyenes edzésvideók találhatók.</p>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 FitLife - Edzés és Mozgás</p>
+            <p>Készítő: <span class="creator">Kovács János</span></p>
+        </div>
+    </footer>
+</body>
+</html>
