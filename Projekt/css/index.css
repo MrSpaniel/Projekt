@@ -65,8 +65,8 @@
         }
         
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('képek/kezdőlap1.jpg');
-            background-size: cover;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(kepek/maci.jpg);
+            background-size: contain;
             background-position: center;
             height: 60vh;
             display: flex;
@@ -179,19 +179,18 @@
         .float-left {
             float: left;
             margin: 0 1.5rem 1rem 0;
-            max-width: 45%;
+            max-width: 30%;
             border-radius: 5px;
         }
         
         .float-right {
             float: right;
             margin: 0 0 1rem 1.5rem;
-            max-width: 45%;
+            max-width: 30%;
             border-radius: 5px;
         }
         
         .clearfix::after {
-            content: "";
             display: table;
             clear: both;
         }
